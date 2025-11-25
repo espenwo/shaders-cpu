@@ -14,9 +14,17 @@ int main()
 
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
-            fputc(0xFF, f); // full red
-            fputc(0x00, f); // no green for now
-            fputc(0x00, f); // no blue for now
+
+            if ((x / 60 + y / 60) % 2 == 0) {
+                fputc(0xFF, f); // full red
+                fputc(0x00, f); // no green for now
+                fputc(0x00, f); // no blue for now
+            }
+            else {
+                fputc(0x00, f); // full red
+                fputc(0x00, f); // no green for now
+                fputc(0x00, f); // no blue for now
+            }
         }
     }
 
